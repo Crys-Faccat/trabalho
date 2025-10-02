@@ -1,9 +1,8 @@
-// src/pages/Produtos.js
 import React, { useEffect, useState } from "react";
-import api from "../services/api"; // verifique baseURL: http://localhost:3000
+import api from "../services/api"; //  http://localhost:3000
 
 function safeParseData(payload) {
-  // Garante que data seja um array/objeto: tenta parse se for string JSON
+
   const d = payload?.data ?? null;
   if (Array.isArray(d) || (d && typeof d === "object")) return d;
   if (typeof d === "string") {
@@ -36,10 +35,10 @@ function Produtos() {
       if (Array.isArray(parsed)) {
         setProdutos(parsed);
       } else if (parsed && typeof parsed === "object" && Array.isArray(parsed.data)) {
-        // caso aninhado
+
         setProdutos(parsed.data);
       } else {
-        // fallback: tentar usar res.data diretamente se for array
+
         if (Array.isArray(res.data)) setProdutos(res.data);
         else setProdutos([]);
         console.warn("carregarProdutos: resposta não está no formato esperado, setando lista vazia.");
