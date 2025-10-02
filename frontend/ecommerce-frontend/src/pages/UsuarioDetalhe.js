@@ -6,8 +6,9 @@ function UsuarioDetalhe() {
   const { id } = useParams();
   const [usuario, setUsuario] = useState(null);
 
-api.get(`/users/${id}`).then((res) => setUsuario(res.data.data));
-
+  useEffect(() => {
+    api.get(`/users/${id}`).then((res) => setUsuario(res.data.data));
+  }, [id]); 
 
   if (!usuario) return <p>Carregando...</p>;
 
