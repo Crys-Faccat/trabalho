@@ -1,6 +1,5 @@
-// src/pages/Usuarios.js
 import React, { useEffect, useState } from "react";
-import api from "../services/api"; // verifique baseURL: http://localhost:3000
+import api from "../services/api"; //  http://localhost:3000
 
 function Usuarios() {
   const [usuarios, setUsuarios] = useState([]);
